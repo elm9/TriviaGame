@@ -1,0 +1,13 @@
+body {
+    background-color: black;
+    background-image: url(../images/background-board-carpentry.jpg)
+}
+.container {
+    padding: 20px;
+    background-color: #FEDC3D;
+    color: #f8fae4;
+}
+.btn {
+    width: 100%;
+    font-size: xx-large;   
+}

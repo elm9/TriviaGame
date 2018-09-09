@@ -1,4 +1,4 @@
-// Questions/Options/Answers===========================================================================================
+// ===Questions/Options/Answers========================================================================================
 var questions = [
     { question: "_______ in capacity can learn to talk better than parrots.",
     options: ["Hawks", "Pigeons", "Ravens"],
@@ -28,3 +28,14 @@ var questions = [
     options: ["160", "16 thousand", "1.6 million"],
     answer: "1.6 million"}];
 // ==================================================================================================================
+
+// Set Correct Answers/Incorrect Answers to zero
+var correctAnswers = 0;
+var incorrectAnswers = 0;
+
+// function to make questions appear
+var questionIndex = 0;
+
+function questionsAppear() {
+    
+}
