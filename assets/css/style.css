@@ -1,13 +1,23 @@
 body {
     background-color: black;
-    background-image: url(../images/background-board-carpentry.jpg)
+    background-image: url(../images/abstract-atmospheric-atmospheric-evening-1090977.jpg);
+    font-family: 'Tillana', cursive;
 }
 .container {
     padding: 20px;
-    background-color: #FEDC3D;
-    color: #f8fae4;
+    background-color: #01abba;
+    color: #FEDC3D;
+    border-radius: 5px; 
+    border: 15px double #01CBBA;
+}
+h1 {
+    font-family: 'Pacifico' , cursive !important;
+    text-shadow: -3px 0 #f8fae4;
 }
 .btn {
     width: 100%;
-    font-size: xx-large;   
+    font-size: xx-large;
+    color: #f8fae4;
+    font-family: 'Tillana', cursive;
+    font-weight: bolder;  
 }

@@ -32,10 +32,11 @@ var questions = [
 // Set Correct Answers/Incorrect Answers to zero
 var correctAnswers = 0;
 var incorrectAnswers = 0;
+var time = 90;
 
 // function to make questions appear
-var questionIndex = 0;
+
 
 function questionsAppear() {
-    
+
 }
