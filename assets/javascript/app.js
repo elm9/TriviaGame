@@ -13,7 +13,7 @@ var questions = [
     options: ["293", "42", "132"],
     answer: "293"},
     { question: "________ was initially intended to be used as 3-D wallpaper.",
-    options: ["Bubble wrap", "Felt", "Sand paper"],
+    options: ["Play-Doh", "Bubble wrap", "Sand paper"],
     answer: "Bubble wrap"},
     { question: "The last movie ever rented at a corporate Blockbuster was __________ at a store in Hawaii.",
     options: ["The Land Before Time", "The NeverEnding Story", "This Is The End"],
@@ -44,6 +44,7 @@ $("#beginBtn").on("click", function() {
     
     // hide the #welcome div and show the #game div
     document.getElementById('welcome').style.display = "none";
+    document.getElementById('results').style.display = "none";
     document.getElementById('game').style.display = "block";
 
     // timer function
@@ -61,7 +62,10 @@ $("#beginBtn").on("click", function() {
             time--;
         }
     };
-    
+    //end game function
+    function endGame(){
+        gameResults();
+    }
     // questions appear
     function triviaQuestions() {
         for (var i = 0; i < questions.length; i++){
@@ -89,9 +93,46 @@ $("#beginBtn").on("click", function() {
             $("#qNa").append(aDiv);
         };
     }
+
+    //submit button ends game
+    $("#submitBtn").on("click", function(){
+        endGame();
+        gameResults();
+    })
+    //retrieve answer values and store score in correct/incorrect answer var
+    function getScore(){
+        for (var i = 0; i < questions.length; i++){
+            var value = $("input[name='answer" + i + "']:checked")[0];
+            //if value is undefined it will count as wrong, 
+            //if value does not match correct answer it will count as wrong,
+            //if value matches correct answer it will count as right
+            if((typeof value) != 'undefined'){
+                value = value.id;
+                if (value == questions[i].answer){
+                    correctAnswers++;
+                }else{
+                    incorrectAnswers++;
+                }
+            }else{incorrectAnswers++;}
+        }
+    }
+
+    //show score
+    function gameResults(){
+        //call function to retrieve answer values
+        getScore();
+        //hide the trivia game and show results div
+        document.getElementById('game').style.display = "none";
+        document.getElementById('results').style.display = "block";
+        //append score to correct/incorrect div
+        $("#correct").append(correctAnswers);
+        $("#incorrect").append(incorrectAnswers);
+
+    }
     //start game
     triviaQuestions();
     countdown();
+
 
 });
 
