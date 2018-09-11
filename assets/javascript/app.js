@@ -28,15 +28,40 @@ var questions = [
     options: ["160", "16 thousand", "1.6 million"],
     answer: "1.6 million"}];
 // ==================================================================================================================
-
-// Set Correct Answers/Incorrect Answers to zero
+// answer score begins at 0
 var correctAnswers = 0;
 var incorrectAnswers = 0;
-var time = 90;
-
-// function to make questions appear
 
 
-function questionsAppear() {
+// only shows the #welcome div on load
+$(document).ready(function(){
+    document.getElementById('game').style.display = "none";
+    document.getElementById('results').style.display = "none";
+    document.getElementById('welcome').style.display = "block";
+});
+// when you click the "BRING IT ON" button:
+$("#beginBtn").on("click", function() {
+    
+    // hide the #welcome div and show the #game div
+    document.getElementById('welcome').style.display = "none";
+    document.getElementById('game').style.display = "block";
 
-}
+    // timer function
+    var time = 90;
+    var timerDiv = document.getElementById('timer');
+    var timerInt = setInterval(countdown, 1000);
+
+    function countdown (){
+        //if time runs out end game, otherwise keep counting down
+        if (time <= 0){
+            clearTimeout(timerInt);
+            endGame();
+        } else{
+            timerDiv.innerHTML = (time + " SECONDS REMAINING");
+            time--;
+        }
+    };
+    
+
+});
+

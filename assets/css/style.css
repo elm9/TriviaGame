@@ -21,3 +21,12 @@ h1 {
     font-family: 'Tillana', cursive;
     font-weight: bolder;  
 }
+#timer {
+    margin: 10px;
+    padding: 10px;
+    background-color: #ff8a65;
+    border: 8px double #ff7043;
+    font-size: xx-large;
+    font-weight: bolder;
+    text-align: center;
+}
