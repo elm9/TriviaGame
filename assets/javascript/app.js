@@ -53,7 +53,7 @@ $("#beginBtn").on("click", function() {
 
     function countdown (){
         //if time runs out end game, otherwise keep counting down
-        if (time <= 0){
+        if (time == 0){
             clearTimeout(timerInt);
             endGame();
         } else{
@@ -62,6 +62,36 @@ $("#beginBtn").on("click", function() {
         }
     };
     
+    // questions appear
+    function triviaQuestions() {
+        for (var i = 0; i < questions.length; i++){
+            //create variables for the new divs that are added to #qNa div
+            var qDiv = $("<div>");
+            var aDiv = $("<form action='#'></form>");
+            //append question to div
+            qDiv.append(questions[i].question);
+            //append answer options to div with radio buttons
+            for (var a = 0; a <questions[i].options.length; a++) {
+                //create variables for the answer input options and labels
+                var p = $("<p>");
+                var label = $("<label>");
+                var input = $("<input type='radio' name='answer" + i + "' id='" + questions[i].options[a] + "'class='with-gap' color='black' />");
+                var span = $("<span>" + questions[i].options[a] + "</span>");
+
+                //now trigger the appending
+                aDiv.append(p);
+                p.append(label);
+                label.append(input);
+                label.append(span);
+            }
+            //append the question and answer to #qNa div
+            $("#qNa").append(qDiv);
+            $("#qNa").append(aDiv);
+        };
+    }
+    //start game
+    triviaQuestions();
+    countdown();
 
 });
 

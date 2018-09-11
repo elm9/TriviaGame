@@ -29,4 +29,13 @@ h1 {
     font-size: xx-large;
     font-weight: bolder;
     text-align: center;
+    color: #f8fae4;
+}
+#qNa {
+    background-color: #FEDC3D;
+    border-radius: 5px;
+    border: 10px double #f8fae4;
+    color: black;
+    margin: 10px;
+    padding: 50px;
 }
