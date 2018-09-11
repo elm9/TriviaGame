@@ -98,6 +98,12 @@ $("#beginBtn").on("click", function() {
     $("#submitBtn").on("click", function(){
         endGame();
         gameResults();
+        
+        console.log("Correct answers: " + correctAnswers);
+        console.log("incorrect answers: " + incorrectAnswers);
+        
+
+
     })
     //retrieve answer values and store score in correct/incorrect answer var
     function getScore(){
@@ -116,19 +122,19 @@ $("#beginBtn").on("click", function() {
             }else{incorrectAnswers++;}
         }
     }
+        //show score
+        function gameResults(){
+            //call function to retrieve answer values
+            getScore();
+            //hide the trivia game and show results div
+            document.getElementById('game').style.display = "none";
+            document.getElementById('results').style.display = "block";
+            //append score to correct/incorrect div
+            $("#correct").append(correctAnswers);
+            $("#incorrect").append(incorrectAnswers);
 
-    //show score
-    function gameResults(){
-        //call function to retrieve answer values
-        getScore();
-        //hide the trivia game and show results div
-        document.getElementById('game').style.display = "none";
-        document.getElementById('results').style.display = "block";
-        //append score to correct/incorrect div
-        $("#correct").append(correctAnswers);
-        $("#incorrect").append(incorrectAnswers);
+        }
 
-    }
     //start game
     triviaQuestions();
     countdown();
